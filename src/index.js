@@ -1,4 +1,3 @@
-  
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app.jsx';
@@ -18,3 +17,5 @@ ReactDOM.render(
     />,
     document.querySelector(`#root`)
 );
+
+// npm run test.jest -- -u

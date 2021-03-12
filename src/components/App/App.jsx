@@ -13,9 +13,9 @@ const App = (props) => {
   );
 };
 
-App.propTypes ={
-  housingCount:PropTypes.number.isRequired,
+App.propTypes = {
+  housingCount: PropTypes.number.isRequired,
   namesCards: PropTypes.arrayOf(PropTypes.string.isRequired)
-}
+};
 
 export default App;

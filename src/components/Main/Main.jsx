@@ -112,9 +112,9 @@ const Main = (props) => {
   );
 };
 
-Main.propTypes ={
-  housingCount:PropTypes.number.isRequired,
+Main.propTypes = {
+  housingCount: PropTypes.number.isRequired,
   namesCards: PropTypes.arrayOf(PropTypes.string.isRequired)
-}
+};
 
 export default Main;
