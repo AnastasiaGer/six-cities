@@ -5,12 +5,13 @@ import CustomsOfferType from '../../CustomsOfferType/CustomsOfferType.js';
 
 const Card = (props) => {
 
-  const {offer, onHover} = props;
-  const {photo, premium, price, title, type, rating} = offer;
+  const {offer, onTitleCardClick} = props;
+  const {photos, premium, price, title, type, rating} = offer;
+
 
   return (
-    <article className="cities__place-card place-card"
-      onMouseOver={onHover}
+    <article
+      className="cities__place-card place-card"
     >
       {premium ?
         <div className="place-card__mark">
@@ -19,7 +20,7 @@ const Card = (props) => {
       }
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src={photo} width="260" height="200" alt="Place image" />
+          <img className="place-card__image" src={photos[0]} width="260" height="200" alt={title} />
         </a>
       </div>
       <div className="place-card__info">
@@ -37,16 +38,17 @@ const Card = (props) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: rating * 20 + `%`}}></span>
+            <span style={{width: Math.round(rating) * 20 + `%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
           <a
             href="#"
+            onClick={() => onTitleCardClick(offer)}
           >{title}</a>
         </h2>
-        <p className="place-card__type">{type}</p>
+        <p className="place-card__type">{Object.values(type)}</p>
       </div>
     </article>
   );
@@ -54,7 +56,7 @@ const Card = (props) => {
 
 Card.propTypes = {
   offer: PropTypes.shape(CustomsOfferType).isRequired,
-  onHover: PropTypes.func.isRequired
+  onTitleCardClick: PropTypes.func.isRequired,
 };
 
 export default Card;
