@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
-import React from 'react';
-import renderer from 'react-test-renderer';
-import Main from './Main.jsx';
-import {Ads} from '../../mock/hotels.js';
+import React from "react";
+import renderer from "react-test-renderer";
+import ListOffers from './ListOffers.jsx';
 
 export const offers = [
   {
@@ -24,10 +23,9 @@ export const offers = [
   }
 ];
 
-it(`check render Main`, () => {
+it(`check render ListOffers`, () => {
   const tree = renderer.create(
-      <Main
-        housingCount={Ads.HOUSING_COUNT}
+      <ListOffers
         offers={offers}
       />
   ).toJSON();

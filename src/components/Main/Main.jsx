@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '../Card/Card.jsx';
+import ListOffers from '../ListOffers/ListOffers.jsx';
+import CustomsOfferType from '../../CustomsOfferType/CustomsOfferType.js';
+
 
 const Main = (props) => {
-  const {housingCount, namesCards} = props;
-
-  const cards = namesCards.map((nameCard, i) => <Card key={nameCard + i} nameCard={nameCard}/>);
+  const {housingCount, offers} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -98,9 +98,9 @@ const Main = (props) => {
                 </select>
                 */}
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {cards}
-              </div>
+              <ListOffers
+                offers={offers}
+              />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
@@ -114,7 +114,9 @@ const Main = (props) => {
 
 Main.propTypes = {
   housingCount: PropTypes.number.isRequired,
-  namesCards: PropTypes.arrayOf(PropTypes.string.isRequired)
+  offers: PropTypes.arrayOf(
+      PropTypes.shape(CustomsOfferType).isRequired
+  ),
 };
 
 export default Main;
