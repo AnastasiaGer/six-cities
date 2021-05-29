@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ListOffers from '../ListOffers/ListOffers.jsx';
 import CustomsOfferType from '../../CustomsOfferType/CustomsOfferType.js';
 import MapCity from '../MapCity/MapCity.jsx';
+import {TypeSection} from '../../mock/const';
 
 
 const Main = (props) => {
@@ -102,6 +103,7 @@ const Main = (props) => {
               <ListOffers
                 offers={offers}
                 onTitleCardClick={onTitleCardClick}
+                typeSection={TypeSection.CITIES}
               />
             </section>
             <div className="cities__right-section">
