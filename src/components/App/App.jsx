@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import Main from '../Main/Main.jsx';
 import Property from '../Property/Property.jsx';
 import CustomsOfferType from '../../CustomsOfferType/CustomsOfferType.js';
+import CustomsReviewType from '../../CustomsOfferType/CustomsReviewType.js';
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -26,13 +28,14 @@ class App extends PureComponent {
 
 
   _renderApp() {
-    const {offers} = this.props;
+    const {offers, reviews} = this.props;
     const {offer} = this.state;
 
     if (this.state.offer) {
       return (
         <Property
           offer={offer}
+          reviews={reviews}
           onTitleCardClick={this.handlerTitleClick}
         />
       );
@@ -56,6 +59,7 @@ class App extends PureComponent {
           <Route exact path="/dev-property">
             <Property
               offer={this.props.offers[0]}
+              reviews={this.props.reviews}
               onTitleCardClick={this.handlerTitleClick}
             />
           </Route>
@@ -70,6 +74,9 @@ App.propTypes = {
   offers: PropTypes.arrayOf(
       PropTypes.shape(CustomsOfferType).isRequired
   ),
+  reviews: PropTypes.arrayOf(
+      PropTypes.shape(CustomsReviewType).isRequired
+  )
 };
 
 
