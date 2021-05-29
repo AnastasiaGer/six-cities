@@ -29,13 +29,14 @@ class App extends PureComponent {
 
   _renderApp() {
     const {offers, reviews} = this.props;
-    const {offer} = this.state;
+    const nearOffers = offers.slice(0, 3);
 
     if (this.state.offer) {
       return (
         <Property
-          offer={offer}
+          offer={this.state.offer}
           reviews={reviews}
+          nearOffers={nearOffers}
           onTitleCardClick={this.handlerTitleClick}
         />
       );
@@ -59,6 +60,7 @@ class App extends PureComponent {
           <Route exact path="/dev-property">
             <Property
               offer={this.props.offers[0]}
+              nearOffers={this.props.offers}
               reviews={this.props.reviews}
               onTitleCardClick={this.handlerTitleClick}
             />

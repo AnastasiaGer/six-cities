@@ -43,11 +43,7 @@ class MapCity extends Component {
 
   render() {
     return (
-      <div className="cities__right-section">
-        <section className="cities__map map">
-          <div id="map" style={{height: `100%`}}></div>
-        </section>
-      </div>
+      <div id="map" style={{height: `100%`}}></div>
     );
   }
 }
@@ -55,7 +51,7 @@ class MapCity extends Component {
 MapCity.propTypes = {
   offers: PropTypes.arrayOf(
       PropTypes.shape(CustomsOfferType).isRequired
-  ).isRequired
+  )
 };
 
 export default MapCity;
